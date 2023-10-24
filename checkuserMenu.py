@@ -5,7 +5,6 @@ import sys
 import socket
 import urllib.request
 import json
-import subprocess
 
 cor_vermelha = "\033[91m"
 cor_verde = "\033[92m"
@@ -120,12 +119,8 @@ if option == "1":
         print(f"Ocorreu um erro: {e}")
 
     input("\nPressione a tecla Enter para voltar ao menu\n\n")
-            
-            
-            
-            
-            
-          elif option == "2":
+    elif option == "2":
+
             print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
             
             adicionar_ao_cache('porta', input("\nDigite a porta que deseja usar !"))
@@ -136,11 +131,6 @@ if option == "1":
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
             input(f"\nPressione a tecla enter para voltar ao menu\n\n")
-            
-            
-            
-            
-            
         elif option == "3":
             if verificar_processo(nome_do_script):
 
