@@ -29,13 +29,13 @@ def obter_do_cache(chave):
 
 def carregar_cache():
     try:
-        with open('/root/UlekCheckUser/cache.json', 'r') as arquivo:
+        with open('/root/modderajuda/cache.json', 'r') as arquivo:
             return json.load(arquivo)
     except (FileNotFoundError, json.JSONDecodeError):
         return {} 
     
 def salvar_cache(cache):
-    with open('/root/UlekCheckUser/cache.json', 'w') as arquivo:
+    with open('/root/modderajuda/cache.json', 'w') as arquivo:
         json.dump(cache, arquivo)
 
 
@@ -72,7 +72,7 @@ def verificar_processo(nome_processo):
     return False
 
 
-nome_do_script = "/root/UlekCheckUser/checkuser.py"
+nome_do_script = "/root/modderajuda/checkuser.py"
 
 
 
@@ -92,16 +92,30 @@ if __name__ == "__main__":
         print(f"")
 
         print(f"Selecione uma opção:")
-        print(f" 1 - Iniciar checkuser")
-        print(f" 2 - Parar checkuser")
-        print(f" 3 - Verificar links")
-        print(f" 4 - Sobre")
+        print(f" 1 - Matar porta 5454")
+        print(f" 2 - Iniciar checkuser")
+        print(f" 3 - Parar checkuser")
+        print(f" 4 - Verificar links")
+        print(f" 5 - Sobre")
         print(f" 0 - Sair do menu")
 
         option = input("Digite a opção: ")
 
         if option == "1":
 
+            print(f"Liberando a porta 5454!")
+            
+            sudo kill -9 $(lsof -t -i:5454)
+            
+            print(f"Porta 5454 liberada, volte ao menu e iníciei o checkUser na porta 5454")
+
+            input(f"\nPressione a tecla enter para voltar ao menu\n\n")
+            
+            
+            
+            
+            
+          elif option == "2":
             print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
             
             adicionar_ao_cache('porta', input("\nDigite a porta que deseja usar !"))
@@ -112,11 +126,16 @@ if __name__ == "__main__":
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
             input(f"\nPressione a tecla enter para voltar ao menu\n\n")
-        elif option == "2":
+            
+            
+            
+            
+            
+        elif option == "3":
             if verificar_processo(nome_do_script):
 
                 try:
-                    subprocess.run(f'pkill -9 -f "/root/UlekCheckUser/checkuser.py"', shell=True)
+                    subprocess.run(f'pkill -9 -f "/root/modderajuda/checkuser.py"', shell=True)
 
                         
                 except subprocess.CalledProcessError:
@@ -128,7 +147,12 @@ if __name__ == "__main__":
 
 
             input(f"Pressione a tecla enter para voltar ao menu")
-        elif option == "3":
+            
+            
+            
+            
+            
+        elif option == "4":
             os.system('clear')
             if verificar_processo(nome_do_script):
                 print("Abaixo os apps, e os links para cada um: ")
@@ -144,11 +168,11 @@ if __name__ == "__main__":
 
                 print("Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores)")
                 print("")
-                print(f" DtunnelMod - http://proxy.ulekservices.shop/api.php?url=http://{ip}:{porta}/dtmod  ")
-                print(f" GltunnelMod - http://proxy.ulekservices.shop/api.php?url=http://{ip}:{porta}/gl ")
-                print(f" AnyVpnMod - http://proxy.ulekservices.shop/api.php?url=http://{ip}:{porta}/anymod ")
-                print(f" Conecta4g - http://proxy.ulekservices.shop/api.php?url=http://{ip}:{porta}/checkUser ")
-                print(f" AtxTunnel - http://proxy.ulekservices.shop/api.php?url=http://{ip}:{porta}/atx ")
+                print(f" DtunnelMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/dtmod  ")
+                print(f" GltunnelMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/gl ")
+                print(f" AnyVpnMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/anymod ")
+                print(f" Conecta4g - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/checkUser ")
+                print(f" AtxTunnel - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/atx ")
                 print("")
 
             else:
@@ -156,9 +180,13 @@ if __name__ == "__main__":
             input(f"Pressione a tecla enter para voltar ao menu")
                   
 
-        elif option == "4":
+
+
+
+
+        elif option == "5":
             os.system('clear')
-            print(f"Olá, esse é um multi-checkuser criado por @UlekBR")
+            print(f"Olá, esse é um multi-checkuser criado por @UlekBR e editado por @donomodderajuda")
             print(f"Com esse checkuser venho trazendo a possibilidade de usar em diversos apps")
             print(f"Apps como: ")
             print(f" - DtunnelMod")
@@ -167,6 +195,11 @@ if __name__ == "__main__":
             print(f" - Conecta4g")
             print(f"")
             input(f"Pressione a tecla enter para voltar ao menu")
+            
+            
+            
+            
+            
         elif option == "0":
             sys.exit(0)
         else:
