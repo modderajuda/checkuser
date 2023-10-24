@@ -113,7 +113,7 @@ if option == "1":
         # Use subprocess para matar o processo com o PID obtido
         subprocess.run(["sudo", "kill", str(pid)]
         
-        print("Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
+        print(f"Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
     except Exception as e:
         print(f"Ocorreu um erro: {e}")
 
