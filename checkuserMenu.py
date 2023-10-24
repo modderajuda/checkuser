@@ -5,6 +5,7 @@ import sys
 import socket
 import urllib.request
 import json
+import subprocess
 
 cor_vermelha = "\033[91m"
 cor_verde = "\033[92m"
@@ -29,13 +30,13 @@ def obter_do_cache(chave):
 
 def carregar_cache():
     try:
-        with open('/root/modderajuda/cache.json', 'r') as arquivo:
+        with open('/root/checkuser/cache.json', 'r') as arquivo:
             return json.load(arquivo)
     except (FileNotFoundError, json.JSONDecodeError):
         return {} 
     
 def salvar_cache(cache):
-    with open('/root/modderajuda/cache.json', 'w') as arquivo:
+    with open('/root/checkuser/cache.json', 'w') as arquivo:
         json.dump(cache, arquivo)
 
 
@@ -72,7 +73,7 @@ def verificar_processo(nome_processo):
     return False
 
 
-nome_do_script = "/root/modderajuda/checkuser.py"
+nome_do_script = "/root/checkuser/checkuser.py"
 
 
 
@@ -101,15 +102,24 @@ if __name__ == "__main__":
 
         option = input("Digite a opção: ")
 
-        if option == "1":
+        
 
-            print(f"Liberando a porta 5454!")
-            
-            sudo kill -9 $(lsof -t -i:5454)
-            
-            print(f"Porta 5454 liberada, volte ao menu e iníciei o checkUser na porta 5454")
+if option == "1":
+    print("Liberando a porta 5454!")
 
-            input(f"\nPressione a tecla enter para voltar ao menu\n\n")
+    # Use subprocess para executar o comando 'lsof' e pegar o PID do processo na porta 5454
+    try:
+        output = subprocess.check_output(["lsof", "-t", "-i:5454"])
+        pid = int(output.strip())
+        
+        # Use subprocess para matar o processo com o PID obtido
+        subprocess.run(["sudo", "kill", str(pid)])
+        
+        print("Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+
+    input("\nPressione a tecla Enter para voltar ao menu\n\n")
             
             
             
@@ -135,7 +145,7 @@ if __name__ == "__main__":
             if verificar_processo(nome_do_script):
 
                 try:
-                    subprocess.run(f'pkill -9 -f "/root/modderajuda/checkuser.py"', shell=True)
+                    subprocess.run(f'pkill -9 -f "/root/checkuser/checkuser.py"', shell=True)
 
                         
                 except subprocess.CalledProcessError:
