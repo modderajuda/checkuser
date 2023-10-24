@@ -109,11 +109,11 @@ if option == "1":
     try:
         output = subprocess.check_output(["lsof", "-t", "-i:5454"])
         pid = int(output.strip())
-        
+
         # Use subprocess para matar o processo com o PID obtido
-        subprocess.run(["sudo", "kill", str(pid)]
-        
-        print("Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
+        subprocess.run(["sudo", "kill", str(pid)])
+
+        print(f"Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
 
     input("\nPressione a tecla Enter para voltar ao menu\n\n")
 elif option == "2":
