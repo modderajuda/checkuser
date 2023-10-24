@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 /root/modderajuda/checkuserMenu.py
+python3 /root/checkuser/checkuserMenu.py
