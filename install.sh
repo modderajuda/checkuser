@@ -7,7 +7,7 @@ roxo="\e[38;2;128;0;128m"
 reset="\e[0m"
 
 rm -rf /root/modderajuda/
-rm -f /usr/local/bin/modderajuda
+rm -f /usr/local/bin/iniciar
 sudo kill -9 $(lsof -t -i:5454)
 pkill -9 -f "/root/modderajuda/checkuser.py"
 
