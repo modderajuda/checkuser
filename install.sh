@@ -15,7 +15,7 @@ pkill -9 -f "/root/modderajuda/checkuser.py"
 apt update && apt upgrade -y && apt install python3 git -y
 git clone https://github.com/modderajuda/checkuser.git
 chmod +x /root/modderajuda/checkuserMenu.sh
-ln -s /root/modderajuda/checkuserMenu.sh /usr/local/bin/modderajuda
+ln -s /root/modderajuda/checkuserMenu.sh /usr/local/bin/iniciar
 
 clear
 echo -e "Para iniciar o menu digite: ${verde}iniciar${reset}"
