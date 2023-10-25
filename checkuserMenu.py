@@ -110,7 +110,8 @@ if __name__ == "__main__":
 
             print(f"\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
             
-            sudo kill -9 $(lsof -t -i:5454)
+            command = "sudo kill -9 $(lsof -t -i:5454)"
+            subprocess.run(command, shell=True)
             
             input(f"\nPressione a tecla enter para voltar ao menu\n\n")
         elif option == "2":
