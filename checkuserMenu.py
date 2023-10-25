@@ -101,19 +101,17 @@ if __name__ == "__main__":
 
         option = input("Digite a opção: ")
 
+
+
+
+
+
         if option == "1":
 
             print(f"\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
             
-            output = subprocess.check_output(["lsof", "-t", "-i:5454"])
-            pid = int(output.strip())
+            subprocess.run(["kill", "$(lsof -t -i:5454)"])
             
-            subprocess.run(["sudo", "kill", str(pid)])
-
-            
-
-            
-
             input(f"\nPressione a tecla enter para voltar ao menu\n\n")
         elif option == "2":
 
