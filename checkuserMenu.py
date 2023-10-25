@@ -158,11 +158,11 @@ if __name__ == "__main__":
 
                 print("Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores)")
                 print("")
-                print(f" DtunnelMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/dtmod  ")
-                print(f" GltunnelMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/gl ")
-                print(f" AnyVpnMod - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/anymod ")
-                print(f" Conecta4g - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/checkUser ")
-                print(f" AtxTunnel - http://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/atx ")
+                print(f" DtunnelMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/dtmod  ")
+                print(f" GltunnelMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/gl ")
+                print(f" AnyVpnMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/anymod ")
+                print(f" Conecta4g - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/checkUser ")
+                print(f" AtxTunnel - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/atx ")
                 print("")
 
             else:
