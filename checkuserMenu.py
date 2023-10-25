@@ -97,7 +97,7 @@ if __name__ == "__main__":
         print(f" 3 - Parar checkuser")
         print(f" 4 - Verificar links")
         print(f" 5 - Sobre")
-        print(f" 6 - Sair do menu")
+        print(f" 0 - Sair do menu")
 
         option = input("Digite a opção: ")
 
