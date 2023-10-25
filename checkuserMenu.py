@@ -97,25 +97,27 @@ if __name__ == "__main__":
         print(f" 3 - Parar checkuser")
         print(f" 4 - Verificar links")
         print(f" 5 - Sobre")
-        print(f" 0 - Sair do menu")
+        print(f" 6 - Sair do menu")
 
         option = input("Digite a opção: ")
 
-if option == "1":
-    print("Liberando a porta 5454!")
-    # Use subprocess para executar o comando 'lsof' e pegar o PID do processo na porta 5454
-    try:
-        output = subprocess.check_output(["lsof", "-t", "-i:5454"])
-        pid = int(output.strip())
-        # Use subprocess para matar o processo com o PID obtido
-        subprocess.run(["sudo", "kill", str(pid)])
-        os.system('clear')
-        
-        
-    input("\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454\n\nPressione a tecla Enter para voltar ao menu\n\n")
+        if option == "1":
 
-elif option == "2":
-    print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
+            print(f"\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
+            
+            output = subprocess.check_output(["lsof", "-t", "-i:5454"])
+            pid = int(output.strip())
+            
+            subprocess.run(["sudo", "kill", str(pid)])
+
+            
+
+            
+
+            input(f"\nPressione a tecla enter para voltar ao menu\n\n")
+        elif option == "2":
+
+            print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
             
             adicionar_ao_cache('porta', input("\nDigite a porta que deseja usar !"))
 
@@ -125,8 +127,8 @@ elif option == "2":
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
             input(f"\nPressione a tecla enter para voltar ao menu\n\n")
-elif option == "3":
-    if verificar_processo(nome_do_script):
+        elif option == "3":
+            if verificar_processo(nome_do_script):
 
                 try:
                     subprocess.run(f'pkill -9 -f "/root/checkuser/checkuser.py"', shell=True)
@@ -141,8 +143,8 @@ elif option == "3":
 
 
             input(f"Pressione a tecla enter para voltar ao menu")
-elif option == "4":
-    os.system('clear')
+        elif option == "4":
+            os.system('clear')
             if verificar_processo(nome_do_script):
                 print("Abaixo os apps, e os links para cada um: ")
                 print("")
@@ -167,8 +169,10 @@ elif option == "4":
             else:
                 print("\nInicie o serviço primeiro\n")
             input(f"Pressione a tecla enter para voltar ao menu")
-elif option == "5":
-    os.system('clear')
+                  
+
+        elif option == "5":
+            os.system('clear')
             print(f"Olá, esse é um multi-checkuser criado por @UlekBR e editado por @donomodderajuda")
             print(f"Com esse checkuser venho trazendo a possibilidade de usar em diversos apps")
             print(f"Apps como: ")
@@ -178,9 +182,9 @@ elif option == "5":
             print(f" - Conecta4g")
             print(f"")
             input(f"Pressione a tecla enter para voltar ao menu")
-elif option == "0":
-    sys.exit(0)
-else:
-    os.system('clear')
-    print(f"Selecionado uma opção inválida, tente novamente !")
-    input(f"Pressione a tecla Enter para voltar ao menu")
+        elif option == "0":
+            sys.exit(0)
+        else:
+            os.system('clear')
+            print(f"Selecionado uma opção invalida, tente novamente !")
+            input(f"Pressione a tecla enter para voltar ao menu")
