@@ -109,8 +109,10 @@ if option == "1":
         pid = int(output.strip())
         # Use subprocess para matar o processo com o PID obtido
         subprocess.run(["sudo", "kill", str(pid)])
-        print("Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
-    input("\nPressione a tecla Enter para voltar ao menu\n\n")
+        os.system('clear')
+        
+        
+    input("\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454\n\nPressione a tecla Enter para voltar ao menu\n\n")
 
 elif option == "2":
     print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
