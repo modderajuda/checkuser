@@ -193,8 +193,8 @@ if __name__ == "__main__":
 
         elif option == "5":
             os.system('clear')
-            print(f"{cor_amarela}Olá, esse é um multi-checkuser criado por{cor_reset}{cor_vermelha}@UlekBR{cor_reset}{cor_vermelha}e melhorado por{cor_reset} {cor_vermelha}\n@donomodderajuda{cor_reset}")
-            print(f"{cor_amarelo} Com esse checkuser venho trazendo a possibilidade de usar em diversos apps{cor_reset}")
+            print(f"{cor_amarela}Olá, esse é um multi-checkuser criado por{cor_reset}{cor_vermelha}@UlekBR{cor_reset}{cor_amarela}e melhorado por{cor_reset} {cor_vermelha}\n@donomodderajuda{cor_reset}")
+            print(f"{cor_amarela} Com esse checkuser venho trazendo a possibilidade de usar em diversos apps{cor_reset}")
             print(f"{cor_vermelha} Apps como : {cor_reset}")
             print(f" - Conecta4G/5G")
             print(f" - DtunnelMod")
