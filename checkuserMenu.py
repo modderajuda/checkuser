@@ -113,7 +113,8 @@ if __name__ == "__main__":
             command = "sudo kill -9 $(lsof -t -i:5454)"
             subprocess.run(command, shell=True)
             
-            input(f"\n {cor_verde}Pressione a tecla enter para voltar ao menu\n\n{cor_reset}")
+            print(f"{cor_verde}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
+input()  # A linha de input sem mensagem irá para a linha abaixo do print
         elif option == "2":
 
             print(f" {cor_verde}Observação: Para funcionar com security apenas se usar a porta 5454 !{cor_reset}")
@@ -125,7 +126,7 @@ if __name__ == "__main__":
 
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
-            input(f"\n {cor_vermelho}Pressione a tecla enter para voltar ao menu\n\n{cor_reset}")
+            input(f"\n {cor_vermelha}Pressione a tecla enter para voltar ao menu\n\n{cor_reset}")
         elif option == "3":
             if verificar_processo(nome_do_script):
 
@@ -137,7 +138,7 @@ if __name__ == "__main__":
                     print("Erro ao executar o comando.")
                 remover_do_cache("porta")
             else: 
-                print(" {cor_vermelho}O Checkuser não está ativo.{cor_reset}")
+                print(" {cor_vermelha}O Checkuser não está ativo.{cor_reset}")
             
 
 
