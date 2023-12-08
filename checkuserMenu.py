@@ -116,7 +116,7 @@ if __name__ == "__main__":
             command = "sudo kill -9 $(lsof -t -i:5454)"
             subprocess.run(command, shell=True)
             
-            print(f"{cor_verde}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
+            print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
             input()  # A linha de input sem mensagem irá para a linha abaixo do print
         elif option == "2":
 
@@ -200,7 +200,8 @@ if __name__ == "__main__":
             print(f" - GlTunnelMod")
             print(f" - AnyVpnMod")
             print(f"")
-            input(f"Pressione a tecla enter para voltar ao menu")
+            print(f"{cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
+            input()
         elif option == "0":
             sys.exit(0)
         else:
