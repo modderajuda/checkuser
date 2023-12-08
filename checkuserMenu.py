@@ -183,6 +183,7 @@ if __name__ == "__main__":
                 print("")
                 print(f"  {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
+                input(f" {cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
 
             else:
                 print("\nInicie o serviço primeiro\n")
@@ -192,7 +193,7 @@ if __name__ == "__main__":
 
         elif option == "5":
             os.system('clear')
-            print(f"{cor_amarela} Olá, esse é um multi-checkuser criado por{cor_reset} {cor_vermelho}@UlekBR {cor_reset}{cor_vermelha}e melhorado por{cor_reset} {cor_vermelho}\n@donomodderajuda{cor_reset}")
+            print(f"{cor_amarela}Olá, esse é um multi-checkuser criado por{cor_reset}{cor_vermelha}@UlekBR{cor_reset}{cor_vermelha}e melhorado por{cor_reset} {cor_vermelha}\n@donomodderajuda{cor_reset}")
             print(f"{cor_amarelo} Com esse checkuser venho trazendo a possibilidade de usar em diversos apps{cor_reset}")
             print(f"{cor_vermelha} Apps como : {cor_reset}")
             print(f" - Conecta4G/5G")
