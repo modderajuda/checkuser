@@ -91,15 +91,15 @@ if __name__ == "__main__":
 
         print(f"")
 
-        print(f"Selecione uma opção:")
-        print(f" 1 - Matar porta 5454")
-        print(f" 2 - Iniciar checkuser")
-        print(f" 3 - Parar checkuser")
-        print(f" 4 - Verificar links")
-        print(f" 5 - Sobre")
-        print(f" 0 - Sair do menu")
+        print(f" {cor_verde}Selecione uma opção :{cor_reset}")
+        print(f" {cor_verde} 1 - Matar porta 5454{cor_reset}")
+        print(f" {cor_verde} 2 - Iniciar checkuser{cor_reset}")
+        print(f" {cor_verde} 3 - Parar checkuser{cor_reset}")
+        print(f" {cor_verde} 4 - Pegar o Link{cor_reset}")
+        print(f" {cor_verde} 5 - Sobre{cor_reset}")
+        print(f" {cor_verde} 0 - Sair do menu{cor_reset}")
 
-        option = input("Digite a opção: ")
+        option = input(" {cor_verde}Digite a opção : {cor_reset}")
 
 
 
@@ -108,24 +108,24 @@ if __name__ == "__main__":
 
         if option == "1":
 
-            print(f"\nPorta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454")
+            print(f"\n {cor_verde}Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454{cor_reset}")
             
             command = "sudo kill -9 $(lsof -t -i:5454)"
             subprocess.run(command, shell=True)
             
-            input(f"\nPressione a tecla enter para voltar ao menu\n\n")
+            input(f"\n {cor_verde}Pressione a tecla enter para voltar ao menu\n\n{cor_reset}")
         elif option == "2":
 
-            print(f"Observação: Para funcionar com security apenas se usar a porta 5454 !")
+            print(f" {cor_verde}Observação: Para funcionar com security apenas se usar a porta 5454 !{cor_reset}")
             
-            adicionar_ao_cache('porta', input("\nDigite a porta que deseja usar !"))
+            adicionar_ao_cache('porta', input("\n {cor_verde}Digite a porta que deseja usar e de enter : {cor_reset}"))
 
             os.system('clear')
             print(f'Porta escolhida: {obter_do_cache("porta")}')
 
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
-            input(f"\nPressione a tecla enter para voltar ao menu\n\n")
+            input(f"\n {cor_vermelho}Pressione a tecla enter para voltar ao menu\n\n{cor_reset}")
         elif option == "3":
             if verificar_processo(nome_do_script):
 
@@ -137,48 +137,62 @@ if __name__ == "__main__":
                     print("Erro ao executar o comando.")
                 remover_do_cache("porta")
             else: 
-                print("O Checkuser não está ativo.")
+                print(" {cor_vermelho}O Checkuser não está ativo.{cor_reset}")
             
 
 
-            input(f"Pressione a tecla enter para voltar ao menu")
+            input(f" {cor_verde}Pressione a tecla enter para voltar ao menu{cor_reset}")
         elif option == "4":
             os.system('clear')
             if verificar_processo(nome_do_script):
-                print("Abaixo os apps, e os links para cada um: ")
+                print(" {cor_verde}Abaixo os apps, e os links para cada um : {cor_reset}")
                 print("")
                 ip = get_public_ip()
                 porta = obter_do_cache("porta")
-                print(f" DtunnelMod - http://{ip}:{porta}/dtmod  ")
-                print(f" GltunnelMod - http://{ip}:{porta}/gl ")
-                print(f" AnyVpnMod - http://{ip}:{porta}/anymod ")
-                print(f" Conecta4g - http://{ip}:{porta}/checkUser ")
-                print(f" AtxTunnel - http://{ip}:{porta}/atx ")
+                print(f" {cor_verde} Conecta4G/5G - http://{ip}:{porta}/checkUser{cor_reset} ")
+                print(f" {cor_verde} DtunnelMod - http://{ip}:{porta}/dtmod{cor_reset}  ")
+                print(f" {cor_verde} GltunnelMod - http://{ip}:{porta}/gl{cor_reset} ")
+                print(f" {cor_verde} AnyVpnMod - http://{ip}:{porta}/anymod{cor_reset} ")
+                print(f" {cor_verde} AtxTunnel - http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
 
-                print("Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores)")
+                print(" {cor_verde}Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores){cor_reset}")
                 print("")
-                print(f" DtunnelMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/dtmod  ")
-                print(f" GltunnelMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/gl ")
-                print(f" AnyVpnMod - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/anymod ")
-                print(f" Conecta4g - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/checkUser ")
-                print(f" AtxTunnel - http://painelconecta4g.com/checkuser.php?url=http://{ip}:{porta}/atx ")
+                print(f" {cor_verde}Link Conecta4G/5G abaixo :{cor_reset} ")
+                print("")
+                print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/checkUser{cor_reset} ")
+                print("")
+                print(f" {cor_verde}Link DtunnelMod abaixo :{cor_reset} ")
+                print("")
+                print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/dtmod{cor_reset}  ")
+                print("")
+                print(f" {cor_verde}Link GltunnelMod abaixo :{cor_reset} ")
+                print("")
+                print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/gl{cor_reset} ")
+                print("")
+                print(f" {cor_verde}Link AnyVpnMod abaixo :{cor_reset} ")
+                print("")
+                print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/anymod{cor_reset} ")
+                print("")
+                print(f" {cor_verde}Link AtxTunnel abaixo :{cor_reset} ")
+                print("")
+                print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
 
             else:
                 print("\nInicie o serviço primeiro\n")
-            input(f"Pressione a tecla enter para voltar ao menu")
+            input(f"Pressione a tecla enter para voltar ao menu{cor_reset}")
                   
 
         elif option == "5":
             os.system('clear')
-            print(f"Olá, esse é um multi-checkuser criado por @UlekBR e editado por @donomodderajuda")
+            print(f"Olá, esse é um multi-checkuser criado por @UlekBR e melhorado por @donomodderajuda")
             print(f"Com esse checkuser venho trazendo a possibilidade de usar em diversos apps")
+            print(f" - Conecta4G/5G")
             print(f"Apps como: ")
             print(f" - DtunnelMod")
             print(f" - GlTunnelMod")
             print(f" - AnyVpnMod")
-            print(f" - Conecta4g")
             print(f"")
             input(f"Pressione a tecla enter para voltar ao menu")
         elif option == "0":
