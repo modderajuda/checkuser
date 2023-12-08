@@ -180,9 +180,6 @@ if __name__ == "__main__":
                 print("")
                 print(f"    {cor_verde}https://painelconecta5g.com/checkuser.php?url=http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
-                
-                print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
-            input()
 
             else:
                 print("\nInicie o serviço primeiro\n")
