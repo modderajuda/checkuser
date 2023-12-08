@@ -98,8 +98,11 @@ if __name__ == "__main__":
         print(f" {cor_verde} 4 - Pegar o Link{cor_reset}")
         print(f" {cor_verde} 5 - Sobre{cor_reset}")
         print(f" {cor_vermelha} 0 - Sair do menu{cor_reset}")
+        print("")
 
-        option = input(" {cor_verde}Digite a opção : {cor_reset}")
+        
+        print(f" {cor_amarela} Digite a opção : {cor_reset}")
+        option = input()
 
 
 
@@ -183,7 +186,6 @@ if __name__ == "__main__":
 
             else:
                 print("\nInicie o serviço primeiro\n")
-                print("")
                 print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
             input()
                   
