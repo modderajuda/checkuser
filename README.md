@@ -5,6 +5,6 @@ para fazer a instalação rode o seguinte comando !
 ```bash <(wget -qO- https://raw.githubusercontent.com/modderajuda/checkuser/main/install.sh)```
 
 
-Feito por @UlekBR e editado por @donomodderajuda
+Feito por @UlekBR e melhorado por @donomodderajuda
 
 Para iniciar o checkuser menu: ```iniciar```
