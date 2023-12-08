@@ -83,11 +83,11 @@ if __name__ == "__main__":
 
 
         if verificar_processo(nome_do_script):
-            status = f'{cor_verde}ativo{cor_reset} - porta em uso: {obter_do_cache("porta")}'
+            status = f'{cor_verde}ativo{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
         else:
-            status = f'{cor_vermelha}parado{cor_reset} - porta que será usada: {obter_do_cache("porta")}'
+            status = f'{cor_vermelha}parado{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
        
-        print(f"Status: {status}")
+        print(f"{cor_amarela}Status: {status}{cor_reset}")
 
         print(f"")
 
