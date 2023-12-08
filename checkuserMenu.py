@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
         if option == "1":
 
-            print(f"\n {cor_amarela} Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454 {cor_reset}")
+            print(f"\n {cor_vermelha} Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454 {cor_reset}")
             
             command = "sudo kill -9 $(lsof -t -i:5454)"
             subprocess.run(command, shell=True)
@@ -117,7 +117,7 @@ if __name__ == "__main__":
             input()  # A linha de input sem mensagem irá para a linha abaixo do print
         elif option == "2":
 
-            print(f" {cor_vermelha} Observação: Para funcionar com security apenas se usar a porta 5454 ! {cor_reset}")
+            print(f" {cor_vermelha} Observação: Para funcionar com security use a porta 5454 ! {cor_reset}")
             
             adicionar_ao_cache('porta', input("\n Digite a porta que deseja usar e de enter : "))
 
@@ -126,7 +126,8 @@ if __name__ == "__main__":
 
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
 
-            input(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
+            print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
+            input()
         elif option == "3":
             if verificar_processo(nome_do_script):
 
@@ -146,7 +147,7 @@ if __name__ == "__main__":
         elif option == "4":
             os.system('clear')
             if verificar_processo(nome_do_script):
-                print(" {cor_amarela} Abaixo os apps, e os links para cada um : {cor_reset}")
+                print(f" {cor_vermelha} Abaixo os apps, e os links para cada um : {cor_reset}")
                 print("")
                 ip = get_public_ip()
                 porta = obter_do_cache("porta")
@@ -157,7 +158,7 @@ if __name__ == "__main__":
                 print(f" {cor_amarela} AtxTunnel - http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
 
-                print(" {cor_vermelha} Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores){cor_reset}")
+                print(f" {cor_vermelha} Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores){cor_reset}")
                 print("")
                 print(f" {cor_amarela}Link Conecta4G/5G abaixo :{cor_reset} ")
                 print("")
@@ -182,8 +183,9 @@ if __name__ == "__main__":
 
             else:
                 print("\nInicie o serviço primeiro\n")
-                print("\n {cor_vermelha} Pressione a tecla enter para voltar ao menu{cor_reset}\n")
-            input()
+                print("")
+                print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu{cor_reset}\n")
+                input()
                   
 
         elif option == "5":
