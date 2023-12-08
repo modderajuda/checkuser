@@ -114,7 +114,7 @@ if __name__ == "__main__":
             subprocess.run(command, shell=True)
             
             print(f"{cor_verde}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
-input()  # A linha de input sem mensagem irá para a linha abaixo do print
+            input()  # A linha de input sem mensagem irá para a linha abaixo do print
         elif option == "2":
 
             print(f" {cor_verde}Observação: Para funcionar com security apenas se usar a porta 5454 !{cor_reset}")
