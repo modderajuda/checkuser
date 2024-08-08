@@ -1,4 +1,3 @@
-
 import os
 import subprocess
 import sys
@@ -19,7 +18,7 @@ def adicionar_ao_cache(chave, valor):
 
 def remover_do_cache(chave):
     cache = carregar_cache()  
-    if chave in cache:
+    if chave em cache:
         del cache[chave]
         salvar_cache(cache) 
 
@@ -38,14 +37,13 @@ def salvar_cache(cache):
     with open('/root/checkuser/cache.json', 'w') as arquivo:
         json.dump(cache, arquivo)
 
-
 def get_public_ip():
     try:
         url = "https://ipinfo.io"
         response = urllib.request.urlopen(url)
         if response.status == 200:
             data = json.loads(response.read().decode("utf-8"))
-            if 'ip' in data:
+            if 'ip' em data:
                 return data['ip']
             else:
                 print("Endereço IP público não encontrado na resposta.")
@@ -56,9 +54,6 @@ def get_public_ip():
     except Exception as e:
         print("Não foi possível obter o endereço IP público:", str(e))
         return None
-
-
-
 
 def verificar_processo(nome_processo):
     try:
@@ -71,16 +66,11 @@ def verificar_processo(nome_processo):
         print(f"Erro ao verificar o processo: {e}")
     return False
 
-
 nome_do_script = "/root/checkuser/checkuser.py"
-
-
-
 
 if __name__ == "__main__":
     while True:
         os.system('clear')
-
 
         if verificar_processo(nome_do_script):
             status = f'{cor_verde}ativo{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
@@ -88,9 +78,7 @@ if __name__ == "__main__":
             status = f'{cor_vermelha}parado{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
        
         print(f"{cor_amarela}Status: {status}{cor_reset}")
-
-        print(f"")
-
+        print("")
         print(f" {cor_vermelha}Selecione uma opção :{cor_reset}")
         print(f" {cor_verde} 1 - Matar porta 5454{cor_reset}")
         print(f" {cor_verde} 2 - Iniciar checkuser{cor_reset}")
@@ -100,54 +88,36 @@ if __name__ == "__main__":
         print(f" {cor_verde} 6 - Desinstalar checkUser{cor_reset}")
         print(f" {cor_vermelha} 0 - Sair do menu{cor_reset}")
         print("")
-
-        
         print(f" {cor_amarela} Digite a opção : {cor_reset}")
         option = input()
 
-
-
-
-
-
         if option == "1":
-
             print(f"\n {cor_vermelha} Porta 5454 liberada, volte ao menu e inicie o checkUser na porta 5454 {cor_reset}")
-            
             command = "sudo kill -9 $(lsof -t -i:5454)"
             subprocess.run(command, shell=True)
-            
             print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
-            input()  # A linha de input sem mensagem irá para a linha abaixo do print
+            input()
+
         elif option == "2":
-
             print(f" {cor_vermelha} Observação: Para funcionar com security use a porta 5454 ! {cor_reset}")
-            
             adicionar_ao_cache('porta', input("\n Digite a porta que deseja usar e de enter : "))
-
             os.system('clear')
             print(f'Porta escolhida: {obter_do_cache("porta")}')
-
             os.system(f'nohup python3 {nome_do_script} --port {obter_do_cache("porta")} & ')
-
             print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
             input()
+
         elif option == "3":
             if verificar_processo(nome_do_script):
-
                 try:
                     subprocess.run(f'pkill -9 -f "/root/checkuser/checkuser.py"', shell=True)
-
-                        
                 except subprocess.CalledProcessError:
                     print("Erro ao executar o comando.")
                 remover_do_cache("porta")
             else: 
                 print(" {cor_vermelha} O Checkuser não está ativo.{cor_reset}")
-            
-
-
             input(f" {cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
+
         elif option == "4":
             os.system('clear')
             if verificar_processo(nome_do_script):
@@ -161,7 +131,6 @@ if __name__ == "__main__":
                 print(f" {cor_amarela} AnyVpnMod - http://{ip}:{porta}/anymod{cor_reset} ")
                 print(f" {cor_amarela} AtxTunnel - http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
-
                 print(f" {cor_vermelha} Para usar com security (por favor, use apenas esses links com security e conexões que não usam cloudflare para não sobrecarregar nossos servidores){cor_reset}")
                 print("")
                 print(f" {cor_amarela}Link Conecta4G/5G abaixo :{cor_reset} ")
@@ -185,12 +154,10 @@ if __name__ == "__main__":
                 print(f"  {cor_verde}https://casualdicas.com/checkuser.php?url=http://{ip}:{porta}/atx{cor_reset} ")
                 print("")
                 input(f" {cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
-
             else:
                 print("\nInicie o serviço primeiro\n")
                 print(f"\n {cor_vermelha} Pressione a tecla enter para voltar ao menu\n\n {cor_reset}")
             input()
-                  
 
         elif option == "5":
             os.system('clear')
@@ -204,27 +171,26 @@ if __name__ == "__main__":
             print(f"")
             print(f"{cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
             input()
+
         elif option == "6":
-    os.system('clear')
-    print(f"\n {cor_vermelha} checkUser Desinstalado {cor_reset}")
-    
-    commands = [
-        "rm -rf /root/checkuser/",
-        "rm -f /usr/local/bin/iniciar",
-        "sudo kill -9 $(lsof -t -i:5454)",
-        "pkill -9 -f /root/checkuser/checkuser.py"
-    ]
-    
-    for command in commands:
-        subprocess.run(command, shell=True)
-    
-    sys.exit(0)
-    
-    print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
-    input()
+            os.system('clear')
+            print(f"\n {cor_vermelha} checkUser Desinstalado {cor_reset}")
+            commands = [
+                "rm -rf /root/checkuser/",
+                "rm -f /usr/local/bin/iniciar",
+                "sudo kill -9 $(lsof -t -i:5454)",
+                "pkill -9 -f /root/checkuser/checkuser.py"
+            ]
+            
+            for command in commands:
+                subprocess.run(command, shell=True)
+            
+            sys.exit(0)
+        
         elif option == "0":
             sys.exit(0)
+        
         else:
             os.system('clear')
-            print(f"Selecionado uma opção invalida, tente novamente !")
+            print(f"Selecionada uma opção inválida, tente novamente!")
             input(f"Pressione a tecla enter para voltar ao menu")
