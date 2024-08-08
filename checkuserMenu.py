@@ -194,6 +194,7 @@ if __name__ == "__main__":
                 "rm -f /usr/local/bin/iniciar",
                 "sudo kill -9 $(lsof -t -i:5454)",
                 "pkill -9 -f /root/checkuser/checkuser.py"
+                "cd"
             ]
             
             for command in commands:
