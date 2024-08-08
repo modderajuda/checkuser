@@ -205,23 +205,23 @@ if __name__ == "__main__":
             print(f"{cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
             input()
         elif option == "6":
-            os.system('clear')
-            print(f"\n {cor_vermelha} checkUser Desinstalado {cor_reset}")
-            
-            command = [
-            "rm -rf /root/checkuser/",
-            "rm -f /usr/local/bin/iniciar"
-            "sudo kill -9 $(lsof -t -i:5454)"
-            "pkill -9 -f /root/checkuser/checkuser.py"
-            ]
-            
-            for command in commands:
-            subprocess.run(command, shell=True)
-            
-            sys.exit(0)
-            
-            print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
-            input()
+    os.system('clear')
+    print(f"\n {cor_vermelha} checkUser Desinstalado {cor_reset}")
+    
+    commands = [
+        "rm -rf /root/checkuser/",
+        "rm -f /usr/local/bin/iniciar",
+        "sudo kill -9 $(lsof -t -i:5454)",
+        "pkill -9 -f /root/checkuser/checkuser.py"
+    ]
+    
+    for command in commands:
+        subprocess.run(command, shell=True)
+    
+    sys.exit(0)
+    
+    print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
+    input()
         elif option == "0":
             sys.exit(0)
         else:
