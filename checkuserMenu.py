@@ -204,16 +204,8 @@ if __name__ == "__main__":
             print(f"")
             print(f"{cor_vermelha} Pressione a tecla enter para voltar ao menu {cor_reset}")
             input()
-        elif option == "0":
-            sys.exit(0)
-        else:
+        elif option == "6":
             os.system('clear')
-            print(f"Selecionado uma opção invalida, tente novamente !")
-            input(f"Pressione a tecla enter para voltar ao menu")
-            
-            elif option == "6":
-            os.system('clear')
-
             print(f"\n {cor_vermelha} checkUser Desinstalado {cor_reset}")
             
             command = "rm -rf /root/checkuser/"
@@ -224,4 +216,10 @@ if __name__ == "__main__":
             subprocess.run(command, shell=True)
             
             print(f"{cor_vermelha}\nPressione a tecla enter para voltar ao menu\n{cor_reset}")
-            input()  # A linha de input sem mensagem irá para a linha abaixo do print
+            input()
+        elif option == "0":
+            sys.exit(0)
+        else:
+            os.system('clear')
+            print(f"Selecionado uma opção invalida, tente novamente !")
+            input(f"Pressione a tecla enter para voltar ao menu")
