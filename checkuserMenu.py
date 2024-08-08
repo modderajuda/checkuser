@@ -18,7 +18,7 @@ def adicionar_ao_cache(chave, valor):
 
 def remover_do_cache(chave):
     cache = carregar_cache()  
-    if chave em cache:
+    if chave in cache:
         del cache[chave]
         salvar_cache(cache) 
 
