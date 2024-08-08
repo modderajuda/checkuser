@@ -1,3 +1,4 @@
+
 import os
 import subprocess
 import sys
@@ -37,13 +38,14 @@ def salvar_cache(cache):
     with open('/root/checkuser/cache.json', 'w') as arquivo:
         json.dump(cache, arquivo)
 
+
 def get_public_ip():
     try:
         url = "https://ipinfo.io"
         response = urllib.request.urlopen(url)
         if response.status == 200:
             data = json.loads(response.read().decode("utf-8"))
-            if 'ip' em data:
+            if 'ip' in data:
                 return data['ip']
             else:
                 print("Endereço IP público não encontrado na resposta.")
@@ -54,6 +56,9 @@ def get_public_ip():
     except Exception as e:
         print("Não foi possível obter o endereço IP público:", str(e))
         return None
+
+
+
 
 def verificar_processo(nome_processo):
     try:
@@ -66,11 +71,16 @@ def verificar_processo(nome_processo):
         print(f"Erro ao verificar o processo: {e}")
     return False
 
+
 nome_do_script = "/root/checkuser/checkuser.py"
+
+
+
 
 if __name__ == "__main__":
     while True:
         os.system('clear')
+
 
         if verificar_processo(nome_do_script):
             status = f'{cor_verde}ativo{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
@@ -78,7 +88,9 @@ if __name__ == "__main__":
             status = f'{cor_vermelha}parado{cor_reset} - {cor_amarela}porta em uso : {cor_reset}{cor_vermelha}{obter_do_cache("porta")}{cor_reset}'
        
         print(f"{cor_amarela}Status: {status}{cor_reset}")
-        print("")
+
+        print(f"")
+
         print(f" {cor_vermelha}Selecione uma opção :{cor_reset}")
         print(f" {cor_verde} 1 - Matar porta 5454{cor_reset}")
         print(f" {cor_verde} 2 - Iniciar checkuser{cor_reset}")
@@ -88,6 +100,8 @@ if __name__ == "__main__":
         print(f" {cor_verde} 6 - Desinstalar checkUser{cor_reset}")
         print(f" {cor_vermelha} 0 - Sair do menu{cor_reset}")
         print("")
+
+        
         print(f" {cor_amarela} Digite a opção : {cor_reset}")
         option = input()
 
